@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 
@@ -14,8 +14,22 @@ class MyApp extends StatelessWidget {
     // TODO: implement build
     //throw UnimplementedError();
     return MaterialApp(
-      title: 'helloworld)',
-      home: Text('Hello!'),
+      home: Scaffold(
+        appBar: myAppBar(),
+        body: myAppBody(),
+      ),
     );
   }
+}
+
+myAppBar() {
+  var myBar = AppBar(
+    title: Text('App demo'),
+  );
+  return myBar;
+}
+
+myAppBody() {
+  var myBody = Text('Hello, World!');
+  return myBody;
 }
