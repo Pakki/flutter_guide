@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 //void main() {
@@ -30,6 +28,41 @@ myAppBar() {
 }
 
 myAppBody() {
-  var myBody = Text('Hello, World!');
+  answerQuestion() {
+    print('Answer choosen!');
+  }
+
+  var questions = [
+    'What\'s your favorite color?',
+    'What\'s your favorite animal?',
+  ];
+  final ButtonStyle style = ElevatedButton.styleFrom(
+    textStyle: TextStyle(fontSize: 20),
+    primary: Colors.blue,
+  );
+  var myBody = Column(
+    children: [
+      Text('Answer a question!'),
+      RaisedButton(
+        child: Text('Answer 1'),
+        onPressed: () => print('answer 1 choosen'),
+      ),
+      RaisedButton(
+        child: Text('Answer 2'),
+        onPressed: () {
+          print('Answer 2 choosen');
+        },
+      ),
+      RaisedButton(
+        child: Text('Answer 3'),
+        onPressed: answerQuestion,
+      ),
+      ElevatedButton(
+        style: style,
+        onPressed: answerQuestion,
+        child: Text('Answer4'),
+      ),
+    ],
+  );
   return myBody;
 }
