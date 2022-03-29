@@ -19,3 +19,5 @@ samples, guidance on mobile development, and a full API reference.
 
 To create new project - run in console
 `flutter create project_name`
+
+all main files of any flutter project placed in `lib` dir
