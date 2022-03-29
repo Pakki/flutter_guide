@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 //void main() {
 //  runApp(MyApp());
@@ -22,6 +23,10 @@ class _MyAppState extends State<MyApp> {
     'What\'s your favorite color?',
     'What\'s your favorite animal?',
   ];
+  var answers = [
+    ['red', 'green', 'blue'],
+    ['cat', 'dog', 'lama'],
+  ];
   _answerQuestion() {
     setState(() {
       _questionIndex++;
@@ -34,29 +39,23 @@ class _MyAppState extends State<MyApp> {
     print('Answer choosen!');
   }
 
-  final ButtonStyle style = ElevatedButton.styleFrom(
-    textStyle: TextStyle(fontSize: 20),
-    primary: Colors.blue,
-  );
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     //throw UnimplementedError();
+
     return MaterialApp(
       home: Scaffold(
         appBar: myAppBar(),
         body: Center(
-          child: Column(
-            children: [
-              Question(questions[_questionIndex]),
-              ElevatedButton(
-                style: style,
-                onPressed: _answerQuestion,
-                child: Text('Answer4'),
-              ),
-            ],
-          ),
-        ),
+            child: Column(
+          children: [
+            Question(questions[_questionIndex]),
+            Answer(answers[_questionIndex][0], _answerQuestion),
+            Answer(answers[_questionIndex][1], _answerQuestion),
+            Answer(answers[_questionIndex][2], _answerQuestion),
+          ],
+        )),
       ),
     );
   }
