@@ -51,9 +51,9 @@ class _MyAppState extends State<MyApp> {
             child: Column(
           children: [
             Question(questions[_questionIndex]),
-            Answer(answers[_questionIndex][0], _answerQuestion),
-            Answer(answers[_questionIndex][1], _answerQuestion),
-            Answer(answers[_questionIndex][2], _answerQuestion),
+            ...answers[_questionIndex].map((answer) {
+              return Answer(answer, _answerQuestion);
+            }),
           ],
         )),
       ),
