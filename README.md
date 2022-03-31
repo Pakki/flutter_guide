@@ -1,5 +1,9 @@
 # flutter_complete_guide
 
+<div id="header" align="center">
+  <img src="./flutter.svg" width="100"/>
+</div>
+
 A small, scary, dirty Flutter project to learn how it works
 
 ## Getting Started

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import './question.dart';
 import './answer.dart';
 
+// to run app we use main function
 //void main() {
 //  runApp(MyApp());
 //}
 
+// same main but with arrow function
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -19,11 +21,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
-  var questions = [
+  final questions = const [
     'What\'s your favorite color?',
     'What\'s your favorite animal?',
   ];
-  var answers = [
+  final answers = const [
     ['red', 'green', 'blue'],
     ['cat', 'dog', 'lama'],
   ];
