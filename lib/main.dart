@@ -16,26 +16,40 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
-
+  int _score = 0;
   final _questionsAnswers = [
     {
       'question': 'What\'s your favorite color?',
-      'answers': ['red', 'green', 'blue'],
+      'answers': [
+        {'text': 'red', 'points': 10},
+        {'text': 'green', 'points': 15},
+        {'text': 'blue', 'points': 5}
+      ],
     },
     {
       'question': 'What\'s your favorite animal?',
-      'answers': ['cat', 'dog', 'lama'],
+      'answers': [
+        {'text': 'cat', 'points': 5},
+        {'text': 'dog', 'points': 10},
+        {'text': 'lama', 'points': 15}
+      ],
     },
     {
       'question': 'What\'s your favorite personage?',
-      'answers': ['Chip', 'Dale', 'Roquefort', 'Gadget', 'Zipper'],
+      'answers': [
+        {'text': 'Chip', 'points': 6},
+        {'text': 'Dale', 'points': 6},
+        {'text': 'Roquefort', 'points': 7},
+        {'text': 'Gadget', 'points': 10},
+        {'text': 'Zipper', 'points': 3}
+      ],
     },
   ];
-  _answerQuestion() {
+  _answerQuestion(int points) {
     setState(() {
       _questionIndex++;
     });
-
+    _score += points;
     print(_questionIndex);
     print('Answer choosen!');
   }
@@ -43,6 +57,7 @@ class _MyAppState extends State<MyApp> {
   _resetState() {
     setState(() {
       _questionIndex = 0;
+      _score = 0;
     });
   }
 
@@ -60,7 +75,7 @@ class _MyAppState extends State<MyApp> {
                 _questionsAnswers[_questionIndex]['answers'],
                 _answerQuestion,
               )
-            : Result(_resetState),
+            : Result(_resetState, _score),
       ),
     );
   }
