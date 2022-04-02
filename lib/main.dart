@@ -32,13 +32,19 @@ class _MyAppState extends State<MyApp> {
   _answerQuestion() {
     setState(() {
       _questionIndex++;
-      if (_questionIndex > questions.length - 1) {
-        _questionIndex = 0;
-      }
+      //if (_questionIndex > questions.length - 1) {
+      //  _questionIndex = 0;
+      //}
     });
 
     print(_questionIndex);
     print('Answer choosen!');
+  }
+
+  _resetState() {
+    setState(() {
+      _questionIndex = 0;
+    });
   }
 
   @override
@@ -48,17 +54,31 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: myAppBar(),
-        body: Center(
-            child: Column(
-          children: [
-            Question(questions[_questionIndex]),
-            ...answers[_questionIndex].map((answer) {
-              return Answer(answer, _answerQuestion);
-            }),
-          ],
-        )),
-      ),
+          appBar: myAppBar(),
+          body: _questionIndex < questions.length
+              ? Center(
+                  child: Column(
+                  children: [
+                    Question(questions[_questionIndex]),
+                    ...answers[_questionIndex].map((answer) {
+                      return Answer(answer, _answerQuestion);
+                    }),
+                  ],
+                ))
+              : Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'You did it',
+                        style: TextStyle(
+                          fontSize: 28,
+                        ),
+                      ),
+                      ElevatedButton(
+                          onPressed: _resetState, child: Text('Reset')),
+                    ],
+                  ),
+                )),
     );
   }
 }
