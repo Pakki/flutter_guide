@@ -1,4 +1,4 @@
-package com.example.flutter_comlete_guide
+package com.example.flutter_complete_guide
 
 import io.flutter.embedding.android.FlutterActivity
 
