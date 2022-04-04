@@ -25,3 +25,6 @@ To create new project - run in console
 `flutter create project_name`
 
 all main files of any flutter project placed in `lib` dir
+
+- [Article about layouts](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
+- [KISS, SOLID, YAGNI And Other Fun Acronyms](https://deleteman.hashnode.dev/kiss-solid-yagni-and-other-fun-acronyms-b5d207530335)
